@@ -1,12 +1,7 @@
 require_relative "piece"
-
+require "singleton"
 class NullPiece < Piece
-    def initialize(color, board, pos)
-        @color = nil
-        @board = board
-        @pos = pos
-
+    include Singleton
+    def initialize
     end
-
-
 end
