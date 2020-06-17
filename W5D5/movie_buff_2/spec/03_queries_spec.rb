@@ -7,7 +7,7 @@ require_relative '../movie_buff/03_queries.rb'
 describe 'what_was_that_one_with' do
 	let(:ben_and_matt) {what_was_that_one_with([
 		'Ben Affleck', 'Matt Damon'
-	]).as_json}
+	]).as_json} 
 
 	let(:geena_and_susan) {what_was_that_one_with([
 		'Geena Davis', 'Susan Sarandon'

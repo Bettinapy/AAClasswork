@@ -11,7 +11,7 @@ class Actor < ApplicationRecord
     foreign_key: :actor_id,
     primary_key: :id
 
-  has_many :movies,
+  has_many :movies, 
     through: :castings,
     source: :movie
 

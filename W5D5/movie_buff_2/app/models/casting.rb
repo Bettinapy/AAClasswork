@@ -10,7 +10,7 @@
 class Casting < ApplicationRecord
   belongs_to :actor,
     class_name: :Actor,
-    foreign_key: :actor_id,
+    foreign_key: :actor_id, 
     primary_key: :id
 
   belongs_to :movie,
