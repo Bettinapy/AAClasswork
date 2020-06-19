@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
     def index
-        @users = User.all
-        render json: @users
+        users = User.all
+        if params.has_key?(:user_name)
+            users = User.where("user_name iLIKE ?", "%#{params[:user_name]}%")     
+        end
+        render json: users
     end
 
     def show
@@ -34,6 +37,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:name, :email)
+        params.require(:user).permit(:user_name)
     end
 end
