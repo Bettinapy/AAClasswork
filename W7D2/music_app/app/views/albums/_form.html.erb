@@ -1,0 +1,45 @@
+<% if action == 'edit' %>
+    <% headline = 'Edit album' %>
+    <% action_url = album_url %>
+<% else %>
+    <% action_url = albums_url %>
+    <% headline = 'Create a album' %>
+<% end %>
+
+<h1><%= headline %></h1>
+<form action="<%= action_url %>" method="POST">
+<% if action == 'edit' %>
+    <input type="hidden" name="_method" value="PATCH">
+<% end %>
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label for="title">Album title</label>
+<input type="text" id="title" name="album[title]" value="<%= album.title %>">
+<br>
+<label for="year">Album year</label>
+<input type="text" id="year" name="album[year]" value="<%= album.year %>">
+<br>
+<label for="band_name">Band</label>
+<select name="band[name]" id="band_name">
+    <option disable selected>---Select a band---</option>
+    <% bands.each do |band| %>
+        <% if album.band == nil %>
+            <option value="<%= band.name %>"><%= band.name %></option>
+        <% else %>
+            <option <%= band.name == album.band.name ? "selected" : "" %>
+            value="<%= band.name %>"><%= band.name %></option>
+        <% end %>
+        
+    <% end %>  
+</select>
+<br>
+<label for="music_type">Music Type</label>
+<select name="album[music_type]" id="music_type">
+    <option disable selected>---Select a music type---</option>
+    <% Album::ALBUM_MUSIC_TYPE.each do |music_type| %>
+            <option <%= music_type == album.music_type ? "selected" : "" %>
+            value="<%= music_type %>"><%= music_type %></option>       
+    <% end %>  
+</select>
+<br>
+<input type="submit" value="<%= headline %>">
+</form>
