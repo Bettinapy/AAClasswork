@@ -2720,3 +2720,7 @@ Completed 500 Internal Server Error in 447ms (ActiveRecord: 19.4ms)
 ActionController::UrlGenerationError (No route matches {:action=>"new", :band_id=>nil, :controller=>"albums"}, missing required keys: [:band_id]):
   
 app/controllers/albums_controller.rb:19:in `create'
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE DATABASE "music_app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE DATABASE "music_app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9

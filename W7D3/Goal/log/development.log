@@ -1,0 +1,112 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200624174557)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar NOT NULL, "password_digest" varchar NOT NULL, "session_token" varchar NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200624174557_create_users.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20200624174557_create_users.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_session_token" ON "users" ("session_token")[0m
+  ↳ db/migrate/20200624174557_create_users.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200624174557"]]
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-06-24 18:07:45.527829"], ["updated_at", "2020-06-24 18:07:45.527829"]]
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUserGoals (20200624203130)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200624203130_create_user_goals.rb:3
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "user_goals" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" varchar NOT NULL, "user_id" integer NOT NULL, "complete?" boolean DEFAULT 0 NOT NULL, "private?" boolean DEFAULT 1 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200624203130_create_user_goals.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_user_goals_on_user_id" ON "user_goals" ("user_id")[0m
+  ↳ db/migrate/20200624203130_create_user_goals.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200624203130"]]
+  ↳ bin/rails:9
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RenameUserGoals (20200624203902)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "auser_goals" ("id" integer NOT NULL PRIMARY KEY, "body" varchar NOT NULL, "user_id" integer NOT NULL, "complete" boolean DEFAULT 0 NOT NULL, "private?" boolean DEFAULT 1 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "tindex_auser_goals_on_user_id" ON "auser_goals" ("user_id")[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "auser_goals" ("id","body","user_id","complete","private?","created_at","updated_at")
+                     SELECT "id","body","user_id","complete?","private?","created_at","updated_at" FROM "user_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE "user_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "user_goals" ("id" integer NOT NULL PRIMARY KEY, "body" varchar NOT NULL, "user_id" integer NOT NULL, "complete" boolean DEFAULT 0 NOT NULL, "private?" boolean DEFAULT 1 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_user_goals_on_user_id" ON "user_goals" ("user_id")[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "user_goals" ("id","body","user_id","complete","private?","created_at","updated_at")
+                     SELECT "id","body","user_id","complete","private?","created_at","updated_at" FROM "auser_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "auser_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "auser_goals" ("id" integer NOT NULL PRIMARY KEY, "body" varchar NOT NULL, "user_id" integer NOT NULL, "complete" boolean DEFAULT 0 NOT NULL, "private" boolean DEFAULT 1 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_auser_goals_on_user_id" ON "auser_goals" ("user_id")[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "auser_goals" ("id","body","user_id","complete","private","created_at","updated_at")
+                     SELECT "id","body","user_id","complete","private?","created_at","updated_at" FROM "user_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "user_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "user_goals" ("id" integer NOT NULL PRIMARY KEY, "body" varchar NOT NULL, "user_id" integer NOT NULL, "complete" boolean DEFAULT 0 NOT NULL, "private" boolean DEFAULT 1 NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE  INDEX "index_user_goals_on_user_id" ON "user_goals" ("user_id")[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "user_goals" ("id","body","user_id","complete","private","created_at","updated_at")
+                     SELECT "id","body","user_id","complete","private","created_at","updated_at" FROM "auser_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "auser_goals"[0m
+  ↳ db/migrate/20200624203902_rename_user_goals.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200624203902"]]
+  ↳ bin/rails:9
+  [1m[35m (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserGoal Create (2.3ms)[0m  [1m[32mINSERT INTO "user_goals" ("body", "user_id", "complete", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["body", "random"], ["user_id", 1], ["complete", 1], ["created_at", "2020-06-24 20:45:52.961482"], ["updated_at", "2020-06-24 20:45:52.961482"]]
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
