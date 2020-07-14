@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     canvasEl.height = 600;
     canvasEl.width = 1000;
     const ctx = canvasEl.getContext('2d'); // need to get ctx from canvasEl
-    ctx.fillStyle = "#0000FF"
+    ctx.fillStyle = "#FFFFFF"
     ctx.fillRect(0, 0, 1000, 600);
     window.ctx = ctx;
     

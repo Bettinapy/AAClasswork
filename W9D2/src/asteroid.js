@@ -14,6 +14,10 @@ function Asteroid(options){
     MovingObject.call(this, options);
 }
 
+Asteroid.prototype.collideWith = function(otherObject){
+    if (otherObject instanceof Ship) otherObject.relocate()
+}
+
 Util.inherits(Asteroid, MovingObject);
 
 module.exports = Asteroid;
