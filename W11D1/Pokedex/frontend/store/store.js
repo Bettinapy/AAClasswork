@@ -13,5 +13,15 @@ const configureStore = () => {
     )
 }
 
+// const configureStore = () => {
+//     debugger
+//     return (
+//     createStore(
+//         rootReducer (), 
+//         applyMiddleware(thunk, logger)
+//         )
+//     )
+// }
+
 export default configureStore;
 
